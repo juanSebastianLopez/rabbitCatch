@@ -1,0 +1,746 @@
+/* Variables */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
+:root{
+    --negro: #000;
+    --fondo: #ccefff;
+    --blanco: #fff;
+    --montana: #926948;
+    --pasto: #579963;
+    --sol: #ffef00;
+    --rosado:#FFC0CB;
+    --ojos: #00cdff;
+} 
+/* Crea o Reinicia un contador */
+body{
+    counter-reset: game;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 62.5%;
+}/* Propiedas que incrementara cada chequeada */ 
+input:checked{
+    counter-increment: game;
+}
+/* Mostrara en un espacio vacio el total de los inputs chequeados 
+    Debe tener un pseudoelemento */
+.conteo-total::after{ 
+    content: counter(game);
+}
+.conteo-total{
+    font-family: 'Courgette', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 0;
+    text-shadow: 1px 1px 2px var(--negro), 0 0 25px var(--negro), 0 0 5px var(--negro);
+}
+.conteo-title{
+    font-family: 'Henny Penny', cursive;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: var(--blanco);
+    text-shadow: 1px 1px 2px var(--rosado), 0 0 25px var(--rosado), 0 0 10px var(--negro);
+}
+.telefono{
+    position: relative;
+    border: 5px solid var(--negro);
+    border-radius: 40px;
+    height: 600px;
+    width: 300px;
+    background-color: var(--fondo);
+    box-shadow: 0px 0px 43px -4px var(--negro);
+    overflow: hidden;
+
+    animation: noche 10s ease-in-out infinite;
+}
+@keyframes noche {
+    0%{
+        background: var(--fondo);
+    }
+    25%{
+        background-color:#86bbd4 ;
+    }
+    50%{
+        background: #1c424b;
+    }
+    60%{
+        background-color: var(--negro);
+    }
+}
+/* Conejo #1 */
+.layer-1{
+    position: absolute;
+    height: 435px;
+    width: 80px;
+    background-color: var(--blanco);
+    bottom: 0;
+    right: 60px;
+    box-shadow: 0px 0px 18px -2px var(--negro);
+    border-radius: 999px;
+
+    animation-name: layer;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes layer {
+    0%{
+        bottom: 0;
+    }
+    25%{
+        bottom: -100px;
+    }
+    50%{
+        bottom: -70px;
+    }
+    75%{
+        bottom: -100px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+.layer-1 input[type=checkbox]{
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    bottom: 400px;
+    left: -4px;
+    height: 20%;
+    cursor: pointer;
+    opacity: 0;
+}
+.oreja-izq{
+    position: absolute;
+    left: 10px;
+    bottom: 420px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-izq-int{
+    position: absolute;
+    left: 14px;
+    bottom: 432px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.oreja-der{
+    position: absolute;
+    right: 10px;
+    bottom: 420px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-der-int{
+    position: absolute;
+    right: 16px;
+    bottom: 432px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.cara{
+    position: absolute;
+    border-radius: 50%;
+    height: 80px;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background:var(--blanco);
+}
+.ojo{
+    background: var(--montana);
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    top: 15px;
+    position: absolute;
+    /* Creamos la animacion */
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+/* Creamos el parpadeo */
+@keyframes parpadeo {
+    0%{
+        height: 5px;
+    }
+    5%{
+        transform: translateY(2px);
+        height: 1px;
+    }
+    10%{
+        transform: translate(0px);
+        height: 5px;
+    }
+}
+.ojo-der{
+    left: 25px;
+}
+.ojo-izq{
+    right: 25px;
+}
+/* Conejo #2 */
+.layer-2{
+    position: absolute;
+    z-index: 2;
+    height: 435px;
+    width: 80px;
+    background-color: var(--blanco);
+    bottom: 0;
+    left: 60px;
+    box-shadow: 0px 0px 18px -2px var(--negro);
+    border-radius: 999px;
+
+    animation-name: layer2;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.layer-2 input[type=checkbox]{
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    bottom: 400px;
+    left: -4px;
+    height: 20%;
+    cursor: pointer;
+    opacity: 0;
+}
+@keyframes layer2 {
+0%{
+    bottom: 0;
+}
+25%{
+    bottom: -100px;
+}
+50%{
+    bottom: -70px;
+}
+75%{
+    bottom: -100px;
+}
+100%{
+    bottom: 0;
+}
+}
+.layer-3{
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 220px;
+    height: 400px;
+    background-color: var(--montana);
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0px 6px 18px -2px var(--negro);
+}
+.pasto{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: auto;
+    height: 55px;
+    border-radius: 15px 15px 0px 0px;
+    background: linear-gradient(135deg, #579963 25%, transparent 25%) -50px 0,
+    linear-gradient(-135deg, #579963 25%, transparent 25%) -49px 0,
+    linear-gradient(45deg, #579963 25%, transparent 25%),
+    linear-gradient(-45deg, #579963 25%, transparent 25%);
+    background-size: 33px 120px;
+}
+/* Conejo #3 */
+.layer-4{
+    position: absolute;
+    z-index: 4;
+    left: 15px;
+    bottom: 0;
+    width: 80px;
+    height: 330px;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+    border-radius: 999px;
+
+    animation-name: layer4;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.layer-4 input[type=checkbox]{
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    bottom: 295px;
+    left: -4px;
+    height: 20%;
+    cursor: pointer;
+    opacity: 0;
+}
+@keyframes layer4 {
+    0%{
+        left: -100px;
+        bottom: 11px;
+    }
+    50%{
+        bottom: 10px;
+        left: -10px;
+        transform: rotate(20deg);
+    }
+    100%{
+        bottom: -100px;
+        left: 15px;
+    }
+    }
+.oreja-izq-4{
+    position: absolute;
+    left: 5px;
+    bottom: 315px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-izq-int-4{
+    position: absolute;
+    left: 10px;
+    bottom: 325px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.oreja-der-4{
+    position: absolute;
+    right: 5px;
+    bottom: 315px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-der-int-4{
+    position: absolute;
+    right: 10px;
+    bottom: 325px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.cara-4{
+    position: absolute;
+    border-radius: 50%;
+    height: 80px;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background:var(--blanco);
+}
+.ojo-4{
+    background: var(--montana);
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    top: 15px;
+    position: absolute;
+    /* Creamos la animacion */
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+/* Creamos el parpadeo */
+@keyframes parpadeo {
+    0%{
+        height: 5px;
+    }
+    5%{
+        transform: translateY(2px);
+        height: 1px;
+    }
+    10%{
+        transform: translate(0px);
+        height: 5px;
+    }
+}
+.ojo-der-4{
+    left: 25px;
+}
+.ojo-izq-4{
+    right: 25px;
+}
+.layer-5{
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: 300px;
+    bottom: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: var(--montana);
+    border-radius: 15px 15px 0px 33px;
+    box-shadow: 10px 6px 18px -2px var(--negro);
+}
+.pasto1{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 15px 15px 0px 0px;
+    background: linear-gradient(135deg, #579963 25%, transparent 25%) -50px 0,
+    linear-gradient(-135deg, #579963 25%, transparent 25%) -49px 0,
+    linear-gradient(45deg, #579963 25%, transparent 25%),
+    linear-gradient(-45deg, #579963 25%, transparent 25%);
+    background-size: 33px 120px;
+}
+/* Conejo #4*/
+.layer-6{
+    position: absolute;
+    z-index: 8;
+    right: 30px;
+    bottom: 0;
+    width: 80px;
+    height: 230px;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+    border-radius: 999px;
+
+    animation-name: layer6;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.layer-6 input[type=checkbox]{
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    bottom: 195px;
+    left: -4px;
+    height: 35%;
+    cursor: pointer;
+    opacity: 0;
+}
+@keyframes layer6 {
+    0%{
+        right: -100px;
+        bottom: -90px;
+    }
+    20%{
+        right: 32px;
+        transform: rotate(30deg);
+    }
+    50%{
+        bottom: 0;
+    }
+    75%{
+        transform: rotate(-10deg);
+        bottom: 5px;
+    }
+    100%{
+        bottom: 10px;
+        transform: rotate(10deg);
+    }
+    
+}
+.oreja-izq-6{
+    position: absolute;
+    left: 5px;
+    bottom: 212px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-izq-int-6{
+    position: absolute;
+    left: 10px;
+    bottom: 223px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.oreja-der-6{
+    position: absolute;
+    right: 5px;
+    bottom: 212px;
+    width: 20px;
+    height: 70px;
+    border-radius: 90%;
+    background: var(--blanco);
+    box-shadow: 0px 0px 18px -2px var(--negro);
+}
+.oreja-der-int-6{
+    position: absolute;
+    right: 10px;
+    bottom: 223px;
+    width: 10px;
+    height: 50px;
+    border-radius: 90%;
+    background: var(--rosado);
+}
+.cara-6{
+    position: absolute;
+    border-radius: 50%;
+    height: 80px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background:var(--blanco);
+}
+.ojo-6{
+    background: var(--montana);
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    top: 15px;
+    position: absolute;
+    /* Creamos la animacion */
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+/* Creamos el parpadeo */ 
+@keyframes parpadeo {
+    0%{
+        height: 5px;
+    }
+    5%{
+        transform: translateY(2px);
+        height: 1px;
+    }
+    10%{
+        transform: translate(0px);
+        height: 5px;
+    }
+}
+.ojo-der-6{
+    left: 25px;
+}
+.ojo-izq-6{
+    right: 25px;
+}
+.layer-7{
+    position: absolute;
+    z-index: 8;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 200px;
+    bottom: 0;
+    margin: 0 auto;
+    background-color: var(--montana);
+    border-radius: 15px 15px 33px 0px;
+    box-shadow: -10px 6px 18px -2px var(--negro);
+}
+.pasto3{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 15px 15px 0px 0px;
+    background: linear-gradient(135deg, #579963 25%, transparent 25%) -50px 0,
+    linear-gradient(-135deg, #579963 25%, transparent 25%) -49px 0,
+    linear-gradient(45deg, #579963 25%, transparent 25%),
+    linear-gradient(-45deg, #579963 25%, transparent 25%);
+    background-size: 33px 120px;
+}
+.layer-8{
+    position: absolute;
+    z-index: 8;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 135px;
+    width: 110px;
+    border-radius: 50px 50px 0px 0px;
+    background: var(--pasto);
+    box-shadow: inset 0px 6px 18px -1px #000000;
+
+    animation-name: pasto2 ;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes pasto2 {
+    0%{
+        bottom: -8px;
+    }
+    20%{
+        transform: scaleY(1.3);
+    }
+    40%{
+        transform: scaleX(1.2);
+        bottom: -5px;
+    }
+    60%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(.9);
+        bottom: -8px;
+    }
+}
+.layer-9{
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    left: 50px;
+    height: 140px;
+    width: 80px;
+    border-radius: 50px 50px 0px 0px;
+    background: var(--pasto);
+    box-shadow:  inset 0px 0px 18px -1px #000000;
+
+    animation-name: pasto1 ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes pasto1 {
+    0%{
+        bottom: 0;
+    }
+    50%{
+        bottom: 25px;
+    }
+    15%{
+        bottom: 15px;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+.layer-10{
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 50px;
+    height: 105px;
+    width: 80px;
+    border-radius: 50px 50px 0px 0px;
+    background: var(--pasto);
+    box-shadow: inset  0px 0px 18px -1px #000000;
+
+    animation-name: pasto3 ;
+    animation-duration: 2.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes pasto3 {
+    0%{
+        bottom: 0;
+    }
+    25%{
+        transform: scaleY(1.3);
+    }
+    50%{
+        transform: scaleX(1.2);
+    }
+    75%{
+        transform: scaleY(1.4);
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+.layer-11{
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    bottom: 0;
+    width: 140px;
+    height: 50px;
+    background: var(--blanco);
+    border-radius: 0px 50px 0px 33px;
+    box-shadow: 0px -3px 15px -2px rgba(0,0,0,0.89);
+}
+.layer-12{
+    position: absolute;
+    z-index: 11;
+    left: 0;
+    bottom: 45px;
+    width: 100px;
+    height: 50px;
+    background: var(--blanco);
+    border-radius: 0px 50px 0px 0px;
+}
+.layer-13{
+    position: absolute;
+    z-index: 14;
+    right   : 0;
+    bottom: 0;
+    width: 140px;
+    height: 50px;
+    background: var(--blanco);
+    border-radius: 50px 0px 33px 0px;
+    box-shadow: 0px -3px 15px -2px rgba(0,0,0,0.89);
+}
+.layer-14{
+    position: absolute;
+    z-index: 13;
+    right: 0;
+    bottom: 45px;
+    width: 100px;
+    height: 50px;
+    background: var(--blanco);
+    border-radius: 50px 0px 0px 0px;
+}
+.sol{
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: var(--sol);
+    box-shadow: 0px 0px 30px 7px #ffef00;
+
+    
+    animation: sol 10s ease-in-out infinite;
+}
+@keyframes sol {
+    0%{
+        background: var(--sol);
+    }
+    25%{
+        background-color:#fff676 ;
+    }
+    50%{
+        background: #fffab3;
+    }
+    60%{
+        background-color: var(--blanco);
+        box-shadow: 0px 0px 30px 7px var(--blanco);
+    }
+}
